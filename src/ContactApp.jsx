@@ -1,6 +1,6 @@
 
 /* root.jsx */
-import { Link, Outlet, useLoaderData } from 'react-router-dom'
+import { Link, Outlet, useLoaderData, Form } from 'react-router-dom'
 export const ContactApp = () => {
 
     const { contacts } = useLoaderData()
@@ -28,9 +28,9 @@ export const ContactApp = () => {
                             aria-live="polite"
                         ></div>
                     </form>
-                    <form method="post">
+                    <Form method="post">
                         <button type="submit">New</button>
-                    </form>
+                    </Form>
                 </div>
                 <nav>
                     {
