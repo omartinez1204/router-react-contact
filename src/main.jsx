@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { ContactApp } from './ContactApp'
 import { Login } from './pages/Login'
-import { Error, Contacto } from './components'
-import { getAllContactsI, createNewContact } from './controllers/contact'
+import { Error, Contacto, EditContact } from './components'
+import { getAllContactsI, createNewContact, getContactoByID, updateContactoByID } from './controllers/contact'
 import './css/style.css'
 
 const router = createBrowserRouter([
@@ -17,8 +17,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: 'contacts/:contactId',
-        element: <Contacto />
-      }
+        element: <Contacto />,
+        loader: getContactoByID,
+      },
+      {
+        path: 'contacts/:contactId/edit',
+        loader:getContactoByID,
+        element: <EditContact/>,
+        action: updateContactoByID
+      },
     ]
   },
   {
