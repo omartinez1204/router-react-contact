@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { ContactApp } from './ContactApp'
 import { Login } from './pages/Login'
 import { Error, Contacto, EditContact } from './components'
-import { getAllContactsI, createNewContact, getContactoByID, updateContactoByID } from './controllers/contact'
+import { getAllContactsI, createNewContact, getContactoByID, updateContactoByID, deleteOneContact } from './controllers/contact'
 import './css/style.css'
 
 const router = createBrowserRouter([
@@ -26,6 +26,10 @@ const router = createBrowserRouter([
         element: <EditContact/>,
         action: updateContactoByID
       },
+      {
+        path:'contacts/:iduser/destroy',
+        action: deleteOneContact
+      }
     ]
   },
   {

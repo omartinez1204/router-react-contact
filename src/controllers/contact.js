@@ -1,12 +1,14 @@
-import { getAllContacts, createOneContact, getContactById, updateContactById  } from '../fetch/contact'
+import { getAllContacts, createOneContact, getContactById, updateContactById, deleteContactById  } from '../fetch/contact'
 
 import { redirect } from 'react-router-dom'
 
+//Todo: 
 const getAllContactsI = async()=>{
-    const contacts = await getAllContacts()
-    return { contacts }
+    const contacts = await getAllContacts();
+    return { contacts };
 }
 
+//Todo:
 const getContactoByID = async( { params } )=>{
     const contact = await getContactById( params.contactId )
     return { contact }
@@ -27,9 +29,16 @@ const createNewContact = async()=>{
     return redirect(`contacts/${contact.id}/edit`)
 }
 
+const deleteOneContact = async({ params })=>{
+    await deleteContactById( params.iduser )
+    return redirect('/')
+}
+
+
 export {
     getAllContactsI,
     createNewContact,
     getContactoByID,
-    updateContactoByID
+    updateContactoByID,
+    deleteOneContact
 }
