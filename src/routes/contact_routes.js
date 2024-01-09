@@ -9,7 +9,7 @@ const router = createBrowserRouter([
       path: '/',
       element: <ContactApp />,
       loader: getAllContactsI,
-      errorElement: <Error />,
+      errorElement: < Error />,
       action: createNewContact,
       children: [
         {
