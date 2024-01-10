@@ -3,9 +3,11 @@ import { getAllContacts, createOneContact, getContactById, updateContactById, de
 import { redirect } from 'react-router-dom'
 
 //Todo: 
-const getAllContactsI = async()=>{
-    const contacts = await getAllContacts();
-    return { contacts };
+const getAllContactsI = async({ request })=>{
+    const url = new URL(request.url)
+    const q = url.searchParams.get('q')
+    const contacts = await getAllContacts(q);
+    return { contacts, q };
 }
 
 //Todo:
